@@ -10,7 +10,9 @@ repos:
     - id: check-added-large-files
     - id: fix-byte-order-marker
     - id: file-contents-sorter
-      files: .ci/spelling/dictionary-(custom)-words\.txt$
+      files: .ci/spelling/dictionary-(custom|dapr|forbidden)-words\.txt$
+      args:
+        - '--ignore-case'
   - repo: https://github.com/keith/pre-commit-buildifier
     rev: e5dd9b832006b183d0428627a0b28412b940054c # 6.4.0
     hooks:

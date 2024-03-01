@@ -1,4 +1,6 @@
 # sort natural ascending
+bazel
+bazelisk
 buildifier
 bzlmod
 dapr
