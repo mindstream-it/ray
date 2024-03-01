@@ -1,0 +1,20 @@
+test --test_output=errors
+
+build --enable_platform_specific_config
+build:linux --@rules_rust//:extra_rustc_flags=-Clink-arg=-fuse-ld=lld
+
+# Windows makes use of runfiles for some rules
+build --enable_runfiles
+
+# Make Bazel 6 use bzlmod by default
+# https://github.com/bazelbuild/examples/blob/481c8ee886cfa7d0cca4d6d2baee17abca2e1685/bzlmod/01-depend_on_bazel_module/.bazelrc#L1
+common --enable_bzlmod
+
+# Additional config to use for readthedocs builds.
+# See .readthedocs.yml for additional flags that can only be determined from
+# the runtime environment.
+# Some bzl files contain repos only available under bzlmod
+build:rtd --stamp
+build:rtd --enable_bzlmod
+
+build

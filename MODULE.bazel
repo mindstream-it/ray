@@ -1,0 +1,48 @@
+module(
+    name = "ray",
+    version = "0.0.1",
+)
+
+bazel_dep(
+    name = "rules_rust",
+    version = "0.39.0",
+)
+bazel_dep(
+    name = "bazel_skylib",
+    version = "1.5.0",
+)
+bazel_dep(
+    name = "rules_oci",
+    version = "1.7.2",
+)
+
+rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
+rust.toolchain(edition = "2021")
+use_repo(
+    rust,
+    "rust_host_tools",
+    "rust_toolchains",
+)
+
+cargo_bazel_bootstrap = use_extension(
+    "@rules_rust//crate_universe/private/module_extensions:cargo_bazel_bootstrap.bzl",
+    "cargo_bazel_bootstrap",
+)
+use_repo(cargo_bazel_bootstrap, "cargo_bazel_bootstrap")
+
+register_toolchains("@rust_toolchains//:all")
+
+# container images
+oci = use_extension("@rules_oci//oci:extensions.bzl", "oci")
+oci.pull(
+    name = "aws_lambda_provided",
+    image = "public.ecr.aws/lambda/provided",
+    platforms = [
+        "linux/amd64",
+        "linux/arm64",
+    ],
+    tag = "al2023",
+)
+
+# For each oci.pull call, repeat the "name" here to expose them as dependencies.
+use_repo(oci, "aws_lambda_provided")
