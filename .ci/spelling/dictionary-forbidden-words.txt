@@ -1,0 +1,7 @@
+# all words in this dictionary should be prefixed with a single !
+# when prefixed with a ! the word becomes forbidden within this repository
+# example: !password
+# when the word 'password' exists with a ! prefix then it will cause a build failure
+#
+# cSpell:disable # do not remove this line. If removed then forbidden words will fail.
+#

@@ -1,0 +1,7 @@
+if [ -n "$(command -v pre-commit)" ]; then
+  pre-commit run
+elif [ -n "$(command -v pipx)" ]; then
+  pipx run pre-commit run
+fi
+
+exec < /dev/tty && npx -y cz --hook || true

@@ -1,0 +1,60 @@
+{
+  "name": "ray",
+  "version": "0.0.1",
+  "description": "Emitting hidden insights and knowledge. A drop of golden sun.",
+  "author": {
+    "email": "aledesma@mindstream.it",
+    "name": "Anthony Ledesma",
+    "url": "https://mindstream.it"
+  },
+  "license": "(PolyForm-Small-Business-1.0.0 OR PolyForm-Strict-1.0.0)",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "npx -y is-ci || npx -y husky",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "cspell": {
+    "version": "0.2",
+    "language": "en",
+    "languageSettings": [{
+      "languageId": "rust,starlark",
+      "locale": "en,en-US"
+    }],
+    "useGitignore": true,
+    "allowCompoundWords": true,
+    "words": [
+      "ledesma",
+      "mindstream",
+      "polyform"
+    ],
+    "import": [
+      "./.ci/spelling/cspell-node.config.cjs"
+    ],
+    "dictionaryDefinitions": [{
+        "name": "customWords",
+        "path": "./.ci/spelling/dictionary-custom-words.txt"
+      },
+      {
+        "name": "forbiddenWords",
+        "path": "./.ci/spelling/dictionary-forbidden-words.txt"
+      }
+    ],
+    "dictionaries": [
+      "bash",
+      "shell",
+      "rust",
+      "starlark",
+      "customWords",
+      "forbiddenWords"
+    ]
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

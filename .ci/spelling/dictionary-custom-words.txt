@@ -1,0 +1,14 @@
+# sort natural ascending
+buildifier
+bzlmod
+dapr
+gsub
+moby
+msvc
+nohup
+pipx
+proto
+rustc
+tlsv
+uefi
+Yoyodyne
