@@ -1,0 +1,9 @@
+{
+  "rust-analyzer.linkedProjects": [
+    "./Cargo.toml",
+    "./crates/apps/ray_cli_app/Cargo.toml",
+    "./crates/apps/ray_telemetry_api/Cargo.toml",
+    "./crates/libs/ray_core_lib/Cargo.toml",
+    "./crates/libs/ray_telemetry_lib/Cargo.toml"
+  ]
+}

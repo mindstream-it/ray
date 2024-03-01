@@ -1,0 +1,31 @@
+# https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html#creating-the-second-package-in-the-workspace
+
+[workspace]
+members = [
+  "crates/apps/ray_cli_app",
+  "crates/apps/ray_telemetry_api",
+  "crates/libs/ray_core_lib",
+]
+
+default-members = [
+  "crates/apps/ray_cli_app",
+  "crates/apps/ray_telemetry_api",
+  "crates/libs/ray_core_lib",
+]
+
+[package]
+name = "ray"
+version = "0.0.1"
+edition = "2021"
+
+[[bin]]
+name = "ray-cli"
+path = "crates/apps/ray_cli_app/src/bin/ray/main.rs"
+
+[[bin]]
+name = "ray-cli-lite"
+path = "crates/apps/ray_cli_app/src/bin/ray-lite/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+# [dependencies]

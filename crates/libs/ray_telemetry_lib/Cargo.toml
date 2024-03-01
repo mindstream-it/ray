@@ -1,0 +1,11 @@
+[package]
+name = "ray_telemetry_lib"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "ray_telemetry_lib"
+path = "src/mod.rs"
+
+[dependencies]
+smbios-lib = "0.9.1"
