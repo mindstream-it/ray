@@ -13,4 +13,5 @@ proto
 rustc
 tlsv
 uefi
+vadimcn
 Yoyodyne
