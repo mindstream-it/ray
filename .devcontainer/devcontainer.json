@@ -17,14 +17,12 @@
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/rust:1": {},
     "ghcr.io/dapr/cli/dapr-cli:0": {},
-    "ghcr.io/devcontainers-community/features/bazel": {},
     "ghcr.io/devcontainers-community/npm-features/typescript:1": {},
     "ghcr.io/devcontainers-contrib/features/pre-commit:2": {}
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        "BazelBuild.vscode-bazel",
         "rust-lang.rust-analyzer",
         "streetsidesoftware.code-spell-checker",
         "vadimcn.vscode-lldb"
