@@ -34,6 +34,10 @@
     "dictionaryDefinitions": [{
         "name": "customWords",
         "path": "./.ci/spelling/dictionary-custom-words.txt"
+        },
+        {
+          "name": "daprWords",
+          "path": "./.ci/spelling/dictionary-dapr-words.txt"
       },
       {
         "name": "forbiddenWords",
@@ -46,6 +50,7 @@
       "rust",
       "starlark",
       "customWords",
+      "daprWords",
       "forbiddenWords"
     ]
   },

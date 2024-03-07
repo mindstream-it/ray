@@ -1,5 +1,4 @@
 # dapr completion bash 2>&1 | awk -F'"' '/+=/&&!/\$/&&$2!~/(=|sh)$/{x=gsub("^-+","",$2); if(length($2)>=3) { gsub("-","\n",$2); print $2 } }' | sort | uniq
-
 address
 addresses
 all
