@@ -12,6 +12,7 @@ updates:
   - package-ecosystem: "cargo"
     directory: "/"
     schedule:
+      # Check for updates to Cargo dependencies every week
       interval: "weekly"
     ignore:
         # These are peer deps of Cargo and should not be automatically bumped
@@ -21,5 +22,16 @@ updates:
   - package-ecosystem: "devcontainers"
     directory: "/"
     schedule:
+      # Check for updates to Development Containers every week
       interval: weekly
+    ignore: []
+
+  - package-ecosystem: "github-actions"
+    # Workflow files stored in the default location of `.github/workflows`.
+    # You don't need to specify `/.github/workflows` for `directory`.
+    # You can use `directory: "/"`.
+    directory: "/"
+    schedule:
+      # Check for updates to GitHub Actions every weekday
+      interval: "daily"
     ignore: []
