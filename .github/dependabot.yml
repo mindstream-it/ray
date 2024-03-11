@@ -4,8 +4,6 @@
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 # https://containers.dev/guide/dependabot
 
-%YAML 1.2
----
 version: 2
 updates:
 
@@ -24,7 +22,7 @@ updates:
     schedule:
       # Check for updates to Development Containers every week
       interval: weekly
-    ignore: []
+    # ignore: []
 
   - package-ecosystem: "github-actions"
     # Workflow files stored in the default location of `.github/workflows`.
@@ -34,4 +32,4 @@ updates:
     schedule:
       # Check for updates to GitHub Actions every weekday
       interval: "daily"
-    ignore: []
+    # ignore: []
