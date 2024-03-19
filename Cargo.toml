@@ -13,10 +13,17 @@ default-members = [
   "crates/libs/ray_core_lib",
 ]
 
+[workspace.package]
+license = "PolyForm-Small-Business-1.0.0 OR PolyForm-Strict-1.0.0"
+edition = "2021"
+rust-version = "1.76.0"
+
 [package]
 name = "ray"
 version = "0.0.1"
-edition = "2021"
+license.workspace = true
+edition.workspace = true
+rust-version.workspace = true
 
 [[bin]]
 name = "ray-cli"
@@ -28,4 +35,4 @@ path = "crates/apps/ray_cli_app/src/bin/ray-lite/main.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-# [dependencies]
+[workspace.dependencies]

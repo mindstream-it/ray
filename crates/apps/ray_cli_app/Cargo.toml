@@ -1,6 +1,9 @@
 [package]
 name = "ray_cli_app"
 
+[package.edition]
+workspace = true
+
 [dependencies]
 ray_core_lib = { path = "../../libs/ray_core_lib" }
 ray_telemetry_lib = { path = "../../libs/ray_telemetry_lib" }

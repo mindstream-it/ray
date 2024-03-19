@@ -1,2 +1,5 @@
 [package]
 name = "ray_core_lib"
+
+[package.edition]
+workspace = true

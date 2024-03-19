@@ -1,5 +1,8 @@
 [package]
 name = "ray_telemetry_api"
 
+[package.edition]
+workspace = true
+
 [dependencies]
 ray_telemetry_lib = { path = "../../libs/ray_telemetry_lib" }

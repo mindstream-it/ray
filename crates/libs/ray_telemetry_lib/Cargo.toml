@@ -1,7 +1,8 @@
 [package]
 name = "ray_telemetry_lib"
-version = "0.1.0"
-edition = "2021"
+
+[package.edition]
+workspace = true
 
 [lib]
 name = "ray_telemetry_lib"
