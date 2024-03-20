@@ -8,6 +8,11 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .pre-commit-config.yaml
+
       - uses: actions/setup-python@v5
         with:
           python-version-file: '.python-version' # Read python version from a file .python-version
