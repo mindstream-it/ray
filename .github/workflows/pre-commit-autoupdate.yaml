@@ -46,11 +46,21 @@ jobs:
           } | tee -a "$GITHUB_OUTPUT"
           echo '_PRECOMMIT_EOF' >>"$GITHUB_OUTPUT"
 
+      - uses: planetscale/ghcommit-action@v0.1.6
+        # Commit changed files back to the repository
+        # if no changed files then continue without error
+        with:
+          commit_message: "chore(deps): Update pre-commit hooks"
+          repo: ${{ github.repository }}
+          branch: bot-pre-commit-autoupdate-${{hashFiles('.pre-commit-config.yaml')}}
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
       - uses: peter-evans/create-pull-request@v6.0.2
+        # Open Pull Requests if there are any commits on the target branch
         with:
           branch: bot-pre-commit-autoupdate-${{hashFiles('.pre-commit-config.yaml')}}
           title: "chore(deps): Update pre-commit hooks"
-          commit-message: "chore(deps): Update pre-commit hooks"
           body: |
             Updates pre-commit hooks
 
