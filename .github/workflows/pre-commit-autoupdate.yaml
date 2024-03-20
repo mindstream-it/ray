@@ -29,14 +29,17 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version-file: '.python-version' # Read python version from a file .python-version
+          # Read python version from a file .python-version
+          python-version-file: '.python-version'
 
       - uses: actions/cache@v4
         with:
           path: |
             ~/.cache/pre-commit
             ~/.cache/pip
-          key: pre-commit-3|${{ env.pythonLocation }}|${{ hashFiles('.pre-commit-config.yaml') }}
+          key: "pre-commit-3|\
+                ${{ env.pythonLocation }}|\
+                ${{ hashFiles('.pre-commit-config.yaml') }}"
 
       - name: Install pre-commit
         run: python -m pip install pre-commit
@@ -60,20 +63,24 @@ jobs:
         with:
           commit_message: "chore(deps): Update pre-commit hooks"
           repo: ${{ github.repository }}
-          branch: bot-pre-commit-autoupdate-${{hashFiles('.pre-commit-config.yaml')}}
+          branch: "bot-pre-commit-autoupdate-\
+                   ${{ hashFiles('.pre-commit-config.yaml') }}"
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: peter-evans/create-pull-request@v6.0.2
         # Open Pull Requests if there are any commits on the target branch
         with:
-          branch: bot-pre-commit-autoupdate-${{hashFiles('.pre-commit-config.yaml')}}
+          branch: "bot-pre-commit-autoupdate-\
+                   ${{ hashFiles('.pre-commit-config.yaml') }}"
           title: "chore(deps): Update pre-commit hooks"
           body: |
             Updates pre-commit hooks
 
             <details>
-            <summary><code>pre-commit autoupdate --freeze --color=never</code></summary>
+            <summary>
+              <code>pre-commit autoupdate --freeze --color=never</code>
+            </summary>
 
             ```
             ${{ steps.pre-commit-autoupdate.outputs.LOG }}
