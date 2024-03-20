@@ -55,7 +55,7 @@ jobs:
             Updates pre-commit hooks
 
             <details>
-            <summary>`pre-commit autoupdate --freeze --color=never`</summary>
+            <summary><code>pre-commit autoupdate --freeze --color=never</code></summary>
 
             ```
             ${{ steps.pre-commit-autoupdate.outputs.LOG }}
