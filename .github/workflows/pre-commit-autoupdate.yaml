@@ -57,10 +57,27 @@ jobs:
           } | tee -a "$GITHUB_OUTPUT"
           echo '_PRECOMMIT_EOF' >>"$GITHUB_OUTPUT"
 
+      - name: Create branch
+        id: pre-commit-create-branch
+        if: contains(steps.pre-commit-autoupdate.outputs.LOG, ' updating ')
+        # https://docs.github.com/en/rest/git/refs?apiVersion=2022-11-28#create-a-reference
+        run: |
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/${GITHUB_REPOSITORY}/git/refs" \
+            -f ref="${NEW_BRANCH_NAME}" \
+            -f sha="${GITHUB_SHA}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEW_BRANCH_NAME: "bot-pre-commit-autoupdate-\
+                            ${{ hashFiles('.pre-commit-config.yaml') }}"
+
       - uses: planetscale/ghcommit-action@v0.1.6
         # Commit changed files back to the repository
         # if no changed files then continue without error
-        if: steps.pre-commit-autoupdate.outputs.LOG
+        if: contains(steps.pre-commit-autoupdate.outputs.LOG, ' updating ')
         with:
           commit_message: "chore(deps): Update pre-commit hooks"
           repo: ${{ github.repository }}
@@ -71,7 +88,7 @@ jobs:
 
       - uses: peter-evans/create-pull-request@v6.0.2
         # Open Pull Requests if there are any commits on the target branch
-        if: steps.pre-commit-autoupdate.outputs.LOG
+        if: contains(steps.pre-commit-autoupdate.outputs.LOG, ' updating ')
         with:
           branch: "bot-pre-commit-autoupdate-\
                    ${{ hashFiles('.pre-commit-config.yaml') }}"
