@@ -67,7 +67,7 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "/repos/${GITHUB_REPOSITORY}/git/refs" \
-            -f ref="${NEW_BRANCH_NAME}" \
+            -f ref="refs/heads/${NEW_BRANCH_NAME}" \
             -f sha="${GITHUB_SHA}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
