@@ -74,7 +74,7 @@ jobs:
           NEW_BRANCH_NAME: "bot-pre-commit-autoupdate-\
                             ${{ hashFiles('.pre-commit-config.yaml') }}"
 
-      - uses: planetscale/ghcommit-action@v0.1.6
+      - uses: planetscale/ghcommit-action@v0.1.35
         # Commit changed files back to the repository
         # if no changed files then continue without error
         if: contains(steps.pre-commit-autoupdate.outputs.LOG, ' updating ')
