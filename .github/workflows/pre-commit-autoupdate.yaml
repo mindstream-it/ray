@@ -86,7 +86,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: peter-evans/create-pull-request@v6.0.2
+      - uses: peter-evans/create-pull-request@v6.0.3
         # Open Pull Requests if there are any commits on the target branch
         if: contains(steps.pre-commit-autoupdate.outputs.LOG, ' updating ')
         with:
