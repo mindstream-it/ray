@@ -12,7 +12,7 @@ default_install_hook_types:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: c4a0b883114b00d8d76b479c820ce7950211c99b  # frozen: v4.5.0
+    rev: 2c9f875913ee60ca25ce70243dc24d5b6415598c  # frozen: v4.6.0
     hooks:
     - id: trailing-whitespace
     - id: end-of-file-fixer
@@ -32,6 +32,6 @@ repos:
     - id: buildifier-lint
       args: *args
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: 3cffdebaff159f8511f24ade423f6bd65e89fae7  # frozen: v8.6.0
+    rev: afc3798e72f3108e5348a30b1fc7eebe1e51a5f5  # frozen: v8.7.0
     hooks:
       - id: cspell
