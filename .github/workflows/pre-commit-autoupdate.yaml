@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'mindstream-it'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           sparse-checkout: |
             .pre-commit-config.yaml
