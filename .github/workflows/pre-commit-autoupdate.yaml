@@ -27,7 +27,7 @@ jobs:
           sparse-checkout: |
             .pre-commit-config.yaml
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           # Read python version from a file .python-version
           python-version-file: '.python-version'
