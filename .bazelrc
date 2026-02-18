@@ -17,4 +17,5 @@ common --enable_bzlmod
 build:rtd --stamp
 build:rtd --enable_bzlmod
 
-build
+# Local overrides (proxy settings, personal preferences) - not committed to VCS
+try-import %workspace%/local.bazelrc

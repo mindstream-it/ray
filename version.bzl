@@ -2,7 +2,7 @@
 Currently used Bazel version. This version is what the rules here are tested against.
 This version should be updated together with the version of Bazel in .bazelversion.
 """
-BAZEL_VERSION = "7.0.0"
+BAZEL_VERSION = "7.7.1"
 
 # NOTE: Keep in sync with .bazelci/presubmit.yml
 # This is the minimum supported bazel version, that we have some tests for.
