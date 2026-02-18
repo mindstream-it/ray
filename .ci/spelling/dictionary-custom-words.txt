@@ -1,16 +1,21 @@
 # sort natural ascending
 bazel
+bazelci
+bazelinbazel
 bazelisk
+bazelversion
 buildifier
 bzlmod
 dapr
 gsub
 moby
 msvc
+noenable
 nohup
 pipx
 proto
 rustc
+srcs
 tlsv
 uefi
 vadimcn

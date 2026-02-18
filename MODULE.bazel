@@ -1,0 +1,40 @@
+module(
+    name = "ray",
+    version = "0.0.1",
+)
+
+bazel_dep(
+    name = "rules_rust",
+    version = "0.68.1",
+)
+bazel_dep(
+    name = "bazel_skylib",
+    version = "1.9.0",
+)
+bazel_dep(
+    name = "rules_oci",
+    version = "1.8.0",
+)
+
+rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
+rust.toolchain(edition = "2021")
+use_repo(
+    rust,
+    "rust_toolchains",
+)
+
+register_toolchains("@rust_toolchains//:all")
+
+# container images
+oci = use_extension("@rules_oci//oci:extensions.bzl", "oci")
+oci.pull(
+    name = "aws_lambda_provided",
+    image = "public.ecr.aws/lambda/provided",
+    platforms = [
+        "linux/amd64",
+        "linux/arm64",
+    ],
+    tag = "al2023",
+)
+
+use_repo(oci, "aws_lambda_provided")
