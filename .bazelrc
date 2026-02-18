@@ -1,6 +1,9 @@
 test --test_output=errors
 
 build --enable_platform_specific_config
+# NOTE: This Linux configuration forces use of the lld linker via -fuse-ld=lld.
+# Ensure that lld is installed and available on all Linux hosts and CI images
+# that run Bazel builds, otherwise linking may fail.
 build:linux --@rules_rust//:extra_rustc_flags=-Clink-arg=-fuse-ld=lld
 
 # Windows makes use of runfiles for some rules
@@ -10,10 +13,9 @@ build --enable_runfiles
 # https://github.com/bazelbuild/examples/blob/481c8ee886cfa7d0cca4d6d2baee17abca2e1685/bzlmod/01-depend_on_bazel_module/.bazelrc#L1
 common --enable_bzlmod
 
-# Additional config to use for readthedocs builds.
-# See .readthedocs.yml for additional flags that can only be determined from
-# the runtime environment.
-# Some bzl files contain repos only available under bzlmod
+# Additional config to use for Read the Docs (RTD) builds.
+# Additional flags that depend on the runtime environment should be provided
+# via the RTD environment, not via a .readthedocs.yml file in this repository.
 build:rtd --stamp
 build:rtd --enable_bzlmod
 

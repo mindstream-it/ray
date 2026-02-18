@@ -4,7 +4,7 @@ This version should be updated together with the version of Bazel in .bazelversi
 """
 BAZEL_VERSION = "7.7.1"
 
-# NOTE: Keep in sync with .bazelci/presubmit.yml
+# NOTE: Keep in sync with .bazelci/presubmit.yaml
 # This is the minimum supported bazel version, that we have some tests for.
 MINIMUM_BAZEL_VERSION = "6.4.0"
 
@@ -14,7 +14,7 @@ MINIMUM_BAZEL_VERSION = "6.4.0"
 # These are the versions used when testing nested workspaces with
 # rules_bazel_integration_test.
 #
-# Keep in sync with MODULE.bazel's bazel_binaries config
+# Keep these in sync with other Bazel version declarations in the repo.
 SUPPORTED_BAZEL_VERSIONS = [
     BAZEL_VERSION,
     MINIMUM_BAZEL_VERSION,

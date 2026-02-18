@@ -43,6 +43,7 @@ rust_library(
 rust_library(
     name = "ray_core_lib",
     srcs = glob(["libs/ray_core_lib/src/**/*.rs"]),
+    crate_root = "libs/ray_core_lib/src/lib.rs",
     crate_features = [],
     edition = "2021",
     proc_macro_deps = [],
