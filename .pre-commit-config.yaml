@@ -24,7 +24,7 @@ repos:
       args:
         - '--ignore-case'
   - repo: https://github.com/keith/pre-commit-buildifier
-    rev: 7b5f1dd4697379a46dd6abd4ee5f79926444b2ac  # frozen: 8.2.1.1
+    rev: 47e712a50d75d0d23ed01168eb2c781fae2095fd  # frozen: 8.5.1
     hooks:
     - id: buildifier
       args: &args
