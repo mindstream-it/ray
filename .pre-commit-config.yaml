@@ -32,6 +32,6 @@ repos:
     - id: buildifier-lint
       args: *args
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: d11f429cd2beb9d91243cd74f30ff0852f74c2fa  # frozen: v9.8.0
+    rev: 4643f154907327ee0a2c7038f0296e0dd77d9776  # frozen: v10.0.0
     hooks:
       - id: cspell
