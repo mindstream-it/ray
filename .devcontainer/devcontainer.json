@@ -14,7 +14,7 @@
       "helm": "latest",
       "minikube": "latest"
     },
-    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/node:2": {},
     "ghcr.io/devcontainers/features/rust:1": {},
     "ghcr.io/dapr/cli/dapr-cli:0": {},
     "ghcr.io/devcontainers-community/npm-features/typescript:1": {},
