@@ -24,7 +24,7 @@ repos:
       args:
         - '--ignore-case'
   - repo: https://github.com/keith/pre-commit-buildifier
-    rev: 79e7d60ac82a78f17c9d4c48a794dadd3b3267dd  # frozen: 10.0.1
+    rev: eedf58bbdbcdc64c28d7f6730d0a32706b32381a  # frozen: 10.2.0
     hooks:
     - id: buildifier
       args: &args
@@ -32,6 +32,6 @@ repos:
     - id: buildifier-lint
       args: *args
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: 058f44e47719e80d8f1e597a235310b60e937860  # frozen: v10.2.0
+    rev: d3550f5482c2ed73e13f59eb33d95db4678a9343  # frozen: v10.4.1
     hooks:
       - id: cspell
